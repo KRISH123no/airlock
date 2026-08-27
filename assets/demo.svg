@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="753" height="744" viewBox="0 0 753 744" role="img" aria-label="airlock — a provider fails, the gateway copes">
+<rect width="753" height="744" rx="8" fill="#0d1117" stroke="#30363d"/>
+<path d="M0 8a8 8 0 0 1 8-8h737a8 8 0 0 1 8 8v28H0z" fill="#161b22"/>
+<line x1="0" y1="36" x2="753" y2="36" stroke="#30363d"/>
+<circle cx="20" cy="18" r="5.5" fill="#ff5f57"/>
+<circle cx="40" cy="18" r="5.5" fill="#febc2e"/>
+<circle cx="60" cy="18" r="5.5" fill="#28c840"/>
+<text x="376.5" y="23" fill="#6e7681" font-size="12" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">airlock — a provider fails, the gateway copes</text>
+<g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="14" xml:space="preserve">
+<text x="18" y="68" fill="#7ee787">$ airlock demo</text>
+<text x="18" y="89" fill="#79c0ff">1. a normal request</text>
+<text x="18" y="110" fill="#c9d1d9">   openai-ish answered in 0ms for $0.000228</text>
+<text x="18" y="152" fill="#79c0ff">2. the same question again</text>
+<text x="18" y="173" fill="#c9d1d9">   cache hit: True, cost $0.000228</text>
+<text x="18" y="215" fill="#79c0ff">3. the primary provider starts failing</text>
+<text x="18" y="236" fill="#c9d1d9">   retried, then fell back to anthropic-ish</text>
+<text x="18" y="257" fill="#c9d1d9">   3 retries before giving up on the primary</text>
+<text x="18" y="299" fill="#79c0ff">4. after enough failures the primary is skipped entirely</text>
+<text x="18" y="320" fill="#c9d1d9">   skipped: openai-ish/medium</text>
+<text x="18" y="341" fill="#c9d1d9">   circuit for openai-ish is open, retrying in 30s</text>
+<text x="18" y="383" fill="#79c0ff">5. personal data never leaves the building</text>
+<text x="18" y="404" fill="#c9d1d9">   redacted 2 value(s): EMAIL, CARD</text>
+<text x="18" y="446" fill="#79c0ff">6. an injection attempt is refused</text>
+<text x="18" y="467" fill="#c9d1d9">   blocked — instruction_override (asks the model to discard its instructions…</text>
+<text x="18" y="509" fill="#79c0ff">7. a key on a small allowance runs out</text>
+<text x="18" y="530" fill="#c9d1d9">   75 requests served, then refused</text>
+<text x="18" y="551" fill="#c9d1d9">   team-trial has spent $0.0011 of its $0.0050 limit</text>
+<text x="18" y="572" fill="#c9d1d9">   no provider was called for the refused request</text>
+<text x="18" y="614" fill="#79c0ff">summary</text>
+<text x="18" y="635" fill="#c9d1d9">   requests      83</text>
+<text x="18" y="656" fill="#c9d1d9">   success rate  98%</text>
+<text x="18" y="677" fill="#c9d1d9">   cache hits    1</text>
+<text x="18" y="698" fill="#c9d1d9">   total spend   $0.001435</text>
+<text x="18" y="719" fill="#c9d1d9">   p95 latency   0.1ms  (fake providers answer instantly)</text>
+</g>
+</svg>
