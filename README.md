@@ -6,6 +6,11 @@
 
 **A checkpoint every AI request passes through.**
 
+The category has a name now — *AI gateway*, or *LLM governance* — and it is on every list of what
+to build in 2026. This is that: the control plane between your application and the model, where
+spend is capped, personal data is stripped, injection is screened, a failing provider is routed
+around, and every request leaves a record.
+
 Calling a model is one line of code. Running that line a hundred thousand times a day is a
 different problem: the provider goes down, a bad loop burns $40,000 overnight, a customer pastes
 their card number into the chat, the model returns almost-JSON and your parser dies, and when
@@ -138,6 +143,21 @@ corrupting values, JSON repaired then rejected for breaking its schema.
 - **The semantic cache ships a trigram hasher, not a real embedding model.** It matches spelling
   and word overlap, not meaning. The `Embedder` interface is one method — swap it.
 - **Prices are configuration.** The defaults are illustrative and vendor pricing changes.
+
+## What it governs, and what it does not
+
+Worth being exact, because "AI governance" is used to mean several different things.
+
+airlock governs **model traffic**: what a request costs, what personal data it carries, whether it
+looks like an injection attempt, which provider served it, and what came back. Every call through
+it is capped, screened, and recorded.
+
+It does **not** govern **agent actions**. If an agent decides to send an email, drop a table or
+spend money through a tool, that is a different checkpoint — tool permissioning, scoping and
+human approval — and none of it is here. A gateway sees the conversation, not the consequences.
+
+The two together are what people mean by an agent security platform. This is the first half, and
+the half that every agent needs whether or not it has tools.
 
 ## Licence
 
